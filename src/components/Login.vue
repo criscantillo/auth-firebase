@@ -15,7 +15,7 @@
                             v-model="form.email"
                             label="Correo"
                             required
-                            prepend-icon="mdi-security"
+                            prepend-icon="mdi-gmail"
                         >
                         </v-text-field>
 
@@ -35,24 +35,26 @@
                     </v-col>
 
                     <v-col cols="12" class="btn-social">
-                        <v-btn class="mx-2" fab dark small color="blue lighten-2">
-                            <v-icon dark>mdi-android</v-icon>
+                        <v-btn class="mx-2" fab dark small color="blue lighten-2"
+                        @click="twitterLogin">
+                            <v-icon dark>mdi-twitter</v-icon>
                         </v-btn>
 
-                        <v-btn class="mx-2" fab dark small color="indigo darken-1">
-                            <v-icon dark>mdi-android</v-icon>
+                        <v-btn class="mx-2" fab dark small color="indigo darken-1"
+                        @click="facebookLogin">
+                            <v-icon dark>mdi-facebook</v-icon>
                         </v-btn>
 
                         <v-btn class="mx-2" fab dark small color="red lighten-1"
-                        @click="googleLogin()">
-                            <v-icon dark>mdi-android</v-icon>
+                        @click="googleLogin">
+                            <v-icon dark>mdi-google</v-icon>
                         </v-btn>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" class="link-reg">
-                        <router-link to="register">Quiero Registrarme</router-link>
+                        <router-link to="registro">Quiero Registrarme</router-link>
                     </v-col>
                 </v-row>
             </v-container>
@@ -137,7 +139,27 @@ export default {
         }).catch((err) => {
             this.error = err.message;
         });
-      }
+    },
+
+    twitterLogin() {
+        const provider = new firebase.auth.TwitterAuthProvider();
+        firebase.auth().signInWithPopup(provider).then((data) => {
+            console.log(data);
+            this.$router.replace({ name: "Dashboard" });
+        }).catch((err) => {
+            this.error = err.message;
+        });
+    },
+
+    facebookLogin() {
+        const provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(provider).then((data) => {
+            console.log(data);
+            this.$router.replace({ name: "Dashboard" });
+        }).catch((err) => {
+            this.error = err.message;
+        });
+    }
   }
 };
 </script>

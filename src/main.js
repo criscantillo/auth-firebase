@@ -12,6 +12,7 @@ firebase.initializeApp(conf.firebaseConfig);
 firebase.analytics();
 
 firebase.auth().onAuthStateChanged(user => {
+  console.log(user);
   store.dispatch("fetchUser", user);
 });
 

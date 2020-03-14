@@ -15,7 +15,7 @@
                             v-model="form.name"
                             label="Nombre"
                             required
-                            prepend-icon="mdi-security"
+                            prepend-icon="mdi-account-circle"
                         >
                         </v-text-field>
 
@@ -23,7 +23,7 @@
                             v-model="form.email"
                             label="Correo"
                             required
-                            prepend-icon="mdi-security"
+                            prepend-icon="mdi-gmail"
                         >
                         </v-text-field>
 

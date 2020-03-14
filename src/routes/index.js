@@ -11,21 +11,21 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-        path: '/login',
-        name: 'login',
-        component: Login
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register
-    },
-    {
-        path: '/dashboard',
-        name: 'Dashboard',
-        component: Dashboard
-    }
-]
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/registro',
+            name: 'Register',
+            component: Register
+        },
+        {
+            path: '/dashboard',
+            name: 'Dashboard',
+            component: Dashboard
+        }
+    ]
 });
 
 export default router;

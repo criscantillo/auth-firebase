@@ -1,44 +1,40 @@
 <template>
-    <v-content>
-        <v-app-bar
-            app
+  <v-card
+        class="mx-auto"
+        max-width="400"
+  >
+
+  <v-container
+    fluid>
+      <v-row class="cont-login" v-if="user.loggedIn">
+        <v-col cols="12">
+          <v-alert
             color="primary"
             dark
-            >
-            <div class="d-flex align-center">
-                <v-img
-                alt="Vuetify Logo"
-                class="shrink mr-2"
-                contain
-                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-                transition="scale-transition"
-                width="40"
-                />
+            icon="mdi-tag-faces"
+            border="left"
+            prominent
+          >
+            Tu estás Logueado
+          </v-alert>
+        </v-col>
+      </v-row>   
 
-                <v-img
-                alt="Vuetify Name"
-                class="shrink mt-1 hidden-sm-and-down"
-                contain
-                min-width="100"
-                src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-                width="100"
-                />
-            </div>
-
-            <v-spacer></v-spacer>
-
-            <v-btn
-                href="https://github.com/vuetifyjs/vuetify/releases/latest"
-                target="_blank"
-                text
-            >
-                <span class="mr-2">Latest Release</span>
-                <v-icon>mdi-open-in-new</v-icon>
-            </v-btn>
-            </v-app-bar>
-
-            <div v-if="user" class="alert alert-success" role="alert">You are logged in!</div>
-    </v-content>
+      <v-row class="cont-login" v-if="!user.loggedIn">
+        <v-col cols="12">
+          <v-alert
+            color="warning"
+            dark
+            icon="mdi-close-circle"
+            border="left"
+            prominent
+          >
+            Tu No estás Logueado
+          </v-alert>
+        </v-col>
+      </v-row>      
+    </v-container>
+  </v-card>
 </template>
 <script>
 import { mapGetters } from "vuex";
